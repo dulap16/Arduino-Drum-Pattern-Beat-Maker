@@ -9,7 +9,7 @@
 
 // CHANGE IF MORE SOUNDS ADDED
 const int nrOfSounds = 5;
-char sounds[20][20] = {"KICK ", "HIHAT ", "CLAP ", "SNARE ", "OPENHAT "};
+char sounds[20][20] = {"KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"};
 char printedSound[20];
 
 // 4X4 KEYPAD INITIALISATION
@@ -123,6 +123,7 @@ void printSounds()
   for(int i = 0; i < nrOfSounds; i++)
   {
     Serial.print(sounds[i]);
+    Serial.print(" ");
     for(int j = 1; j <= 16; j++) {
       Serial.print(soundMatrix[i][j]);
       Serial.print(" ");
