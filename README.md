@@ -1,4 +1,5 @@
-# Beat-Maker-3000
+# Arduino 4 bar Drum pattern
+
 Drum 4 bars pattern manager with arduino components as an interface 
 Each button on the grid coresponds to a beat, and the sound can be changed by pressing a button, therefore you can create diverse beats as an interesting project with an interesting interface
 
