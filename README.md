@@ -8,9 +8,10 @@ This is a FL Studio Channel REC type app that makes use of Arduino components to
 This makes for a cool project as having physical buttons to press is much more interactive and interesting
 The lcd component is also pretty cool, but it can be skipped as you can also see the entire beat in your IDE by pressing one of the buttons
 
-ALL PARTS OF THE ARDUINO AND PYTHON CODE THAT NEED TO BE CHANGED ARE PRECEDED BY A MESSAGE ( you might need to change the lcd serial in the .ino or port in python )
+ALL PARTS OF THE ARDUINO AND PYTHON CODE THAT NEED TO BE CHANGED ARE PRECEDED BY A MESSAGE 
+( you might need to change the lcd serial in the .ino or port in python )
 
-HOW IT WORKS
+HOW IT WORKS 
 -> the Arduino is given the .ino, then it returns messages through the COM3 port ( in my case ) and the .py reads it and plays sounds
 - you upload the .ino into the arduino, then close the arduino IDE and you don't have to do anything with it unless you want to add new sounds
 - with the .py, you use the sounds you like ( or the ones I used for a test ), change the paths if needed
@@ -20,7 +21,7 @@ HOW IT WORKS
 CONNECTING THE ARDUINO COMPONENTS - coming soon
 The connections as I made them are the following way:
 LCD
--
+- blah
 
 
 ADDING AND CHANGING SOUNDS
