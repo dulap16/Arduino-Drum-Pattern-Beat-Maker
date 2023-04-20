@@ -7,16 +7,17 @@
 #define changeSoundOutput 13
 #define printBeatOutput 12
 
-const int nrOfSounds = 5; // CHANGE IF MORE SOUNDS ADDED
-char sounds[20][20] = {"KICK ", "HIHAT ", "CLAP ", "SNARE ", "OPENHAT "}; // ADD SOUNDS HERE
+// CHANGE IF MORE SOUNDS ADDED
+const int nrOfSounds = 5;
+char sounds[20][20] = {"KICK ", "HIHAT ", "CLAP ", "SNARE ", "OPENHAT "};
 char printedSound[20];
 
-// 4X4 KEYPAD INITIALISATION - chech 
+// 4X4 KEYPAD INITIALISATION
 const byte ROWS = 4;
 const byte COLS = 4;
 
 byte cols[COLS] = {5, 4, 3, 2}; // COLUMN PINS
-byte rows[ROWS] = {6, 7, 8, 9};
+byte rows[ROWS] = {6, 7, 8, 9}; // ROW PINS
 char keys[ROWS][COLS] = {
   {'1', '2', '3', '4'}, 
   {'5', '6', '7', '8'}, 
@@ -29,12 +30,6 @@ Keypad keypad = Keypad(makeKeymap(keys), rows, cols, ROWS, COLS);
 // I2C INITIALISATION
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// 0 - kick
-// 1 - hihat
-// 2 - clap
-// 3 - snare
-// 4 - openhats
-// add more if you'd like
 
 int currentSound = 0;
 bool soundMatrix[nrOfSounds + 2][17];

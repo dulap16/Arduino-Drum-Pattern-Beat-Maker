@@ -13,16 +13,21 @@ serialInst = serial.Serial()
 pygame.init()
 pygame.mixer.init()
 
+# ADD PATH OF SOUNDS
+kick = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Kick.wav') # path to kick
+clap = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Basic_Clap.wav') # etc
+hihat = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Hat.wav')
+snare = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Snare.wav')
+openhat = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Open_Hat.wav')
 
-kick = pygame.mixer.Sound(r'C:\\Users\tudor\OneDrive\Documents\Arduino\python_scripts\Beat-Maker-3000\sounds\Pierre_Kick.wav')
-clap = pygame.mixer.Sound(r'C:\\Users\tudor\OneDrive\Documents\Arduino\python_scripts\Beat-Maker-3000\sounds\Basic_Clap.wav')
-hihat = pygame.mixer.Sound(r'C:\\Users\tudor\OneDrive\Documents\Arduino\python_scripts\Beat-Maker-3000\sounds\Pierre_Hat.wav')
-snare = pygame.mixer.Sound(r'C:\\Users\tudor\OneDrive\Documents\Arduino\python_scripts\Beat-Maker-3000\sounds\Pierre_Snare.wav')
-openhat = pygame.mixer.Sound(r'C:\\Users\tudor\OneDrive\Documents\Arduino\python_scripts\Beat-Maker-3000\sounds\Open_Hat.wav')
 
+
+# VARIABLES TO BE CHANGED
 numberOfSounds = 5
 List = [kick, hihat, clap, snare, openhat]
 names = ["KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"]
+
+
 
 
 soundMatrix = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
