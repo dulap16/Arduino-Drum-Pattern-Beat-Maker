@@ -10,6 +10,7 @@
 // CHANGE IF MORE SOUNDS ADDED
 const int nrOfSounds = 5;
 char sounds[20][20] = {"KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"};
+
 char printedSound[20];
 
 // 4X4 KEYPAD INITIALISATION

@@ -13,6 +13,7 @@ serialInst = serial.Serial()
 pygame.init()
 pygame.mixer.init()
 
+
 # ADD PATH OF SOUNDS
 kick = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Kick.wav') # path to kick
 clap = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Basic_Clap.wav') # etc
