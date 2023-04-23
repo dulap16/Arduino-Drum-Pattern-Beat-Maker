@@ -1,23 +1,19 @@
 # Arduino 4 bar Drum pattern
 
 ## Part of an unnamed group of projects consisting of different apps that interact with Arduino components
+
+### Description
+4 Bar Drum Pattern Manager, Beat-Maker, similar to the FL Studio Channel Rec interface, but with arduino components
+By pressing on a 4x4 button grid, you can select the beats on which a specific drum sound will play,
+and then you can switch the sound or print out the entire pattern
+
 ### All the needed components for this group of projects can be found in the Arduino Uno R3 KIT with 24 components
-
-This is a drum 4 bar pattern manager with arduino components as an interface 
-Each button on the grid coresponds to a beat, and the sound can be changed by pressing a button, 
-therefore you can create diverse beats as an interesting project with an interesting interface
-
-
-### Required: ARDUINO UNO; 2 BUTTONS; 4X4 BUTTON GRID; LCD 1602
+### Required:
 - Arduino Uno
 - 2 Tact Buttons
 - 4x4 Button Grid
 - LCD 1602
 
-
-This is an FL Studio Channel REC type app that makes use of Arduino components to make a user-friendly and fun interface
-This makes for a cool project as having physical buttons to press is much more interactive and interesting
-The lcd component is also pretty cool, but it can be skipped as you can also see the entire beat in your IDE by pressing one of the buttons
 
 **Lines that will be modified should you want to change sounds or add more sounds**
 > script.py
@@ -42,11 +38,11 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 ```
 
 
-## How it works
+## Setup
 - the Arduino is provided the .ino, then it returns messages through the COM3 port (in my case) and the .py reads it and plays sounds
 - you upload the .ino into the arduino, then close the arduino IDE and you don't have to do anything with it unless you want to add new sounds
 - with the .py, you use the sounds you like (or the ones I used for a test), change the paths if needed
-- with arduino IDE closed and the arduino plugged in, run the .py and jam on the grid!
+- with Arduino IDE closed and the Arduino Uno plugged in, run the .py and jam on the grid!
 
 
 ## Connecting the components - *coming soon*
