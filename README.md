@@ -91,4 +91,4 @@ Each one of them has a pull down resistor connected to the ground
 - remember to add the correct paths to the .py
 
 
-### That's about it. Have fun and feel free to criticize and offer feedback!
+# That's about it. Have fun and feel free to criticize and offer feedback!
