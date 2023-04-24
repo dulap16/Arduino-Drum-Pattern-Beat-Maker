@@ -63,7 +63,7 @@ The LCD is 16x2, and has a 8051 microcontroller on its back
 ![keypad](pngs/keypad.jpeg)
 
 The connections can be seen clearly in the image.
-
+From left to right, the cables are connected to digital pins from 9 to 2
 
 ### Connecting the 2 switches that control the current sound and when to print the pattern
 ![switches](pngs/switches.jpeg)
