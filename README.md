@@ -2,12 +2,23 @@
 
 ## Part of an unnamed group of projects consisting of different apps that interact with Arduino components
 
-### Description
+## Table of contents
+1. [Description](#description)
+2. [Prerequisites](#prerequisites)
+3. [Setup](#setup)
+4. [Connections](#connections)
+5. [Adding and changing sounds](#sounds)
+
+
+## Description <a name = "description"></a>
 4 Bar Drum Pattern Manager, Beat-Maker, similar to the FL Studio Channel Rec interface, but with arduino components
 By pressing on a 4x4 button grid, you can select the beats on which a specific drum sound will play,
 and then you can switch the sound or print out the entire pattern
 
-### All the needed components for this group of projects can be found in the Arduino Uno R3 KIT with 24 components
+
+
+
+## All the needed components for this group of projects can be found in the Arduino Uno R3 KIT with 24 components <a name = "prerequisites"></a>
 ### Required:
 - Arduino Uno
 - 2 Tact Buttons
@@ -38,14 +49,14 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 ```
 
 
-## Setup
+## Setup <a name = "setup"></a>
 - the Arduino is provided the .ino, then it returns messages through the COM3 port (in my case) and the .py reads it and plays sounds
 - you upload the .ino into the arduino, then close the arduino IDE and you don't have to do anything with it unless you want to add new sounds
 - with the .py, you use the sounds you like (or the ones I used for a test), change the paths if needed
 - with Arduino IDE closed and the Arduino Uno plugged in, run the .py and jam on the grid!
 
 
-## Connecting the components - *coming soon*
+## Connecting the components <a name = "connections"></a>
 
 ### Connecting the LCD
 ![lcd](pngs/lcd.jpeg)
@@ -83,7 +94,7 @@ Each one of them has a pull down resistor connected to the ground
 *B1* gets its input from *A0* and its output goes to *13*
 *B2* gets its input from *A1* and its output goes to *12*
 
-## Adding and changing sounds
+## Adding and changing sounds <a name = "sounds"></a>
 - all you need to do is change things in the parts of the code, both in the .ino and in the .py, that are preceded by messages saying that those are changeable parts
 - when adding a new sound in .py, you need to write <yoursound> = pygame.mixer.Sound(r'<PATH>'), and then add <yoursound> to the List, and its name in caps to names
 - change numberOfSounds (.py) and nrOfSounds (.ino) if needed
