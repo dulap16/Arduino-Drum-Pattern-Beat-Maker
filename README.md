@@ -46,7 +46,9 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
 ## Connecting the components - *coming soon*
-
+![lcd](pngs/lcd.jpeg)
+![keypad](pngs/keypad.jpeg)
+![switches](pngs/switches.jpeg)
 
 ## Adding and changing sounds
 - all you need to do is change things in the parts of the code, both in the .ino and in the .py, that are preceded by messages saying that those are changeable parts
