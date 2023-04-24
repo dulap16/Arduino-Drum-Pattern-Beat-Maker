@@ -74,7 +74,7 @@ The LCD is 16x2, and has a 8051 microcontroller on its back
 ![keypad](pngs/keypad.jpeg)
 
 The connections can be seen clearly in the image.
-
+From left to right, the cables are connected to digital pins from 9 to 2
 
 ### Connecting the 2 switches that control the current sound and when to print the pattern
 ![switches](pngs/switches.jpeg)
@@ -88,10 +88,13 @@ How the connections are made can also be observed in this pard of the *soundpad.
 ```
 
 *B1* - button on the left, that switches the sound
+
 *B2* - button on the right, that prints the pattern of the beat
 
 Each one of them has a pull down resistor connected to the ground
+
 *B1* gets its input from *A0* and its output goes to *13*
+
 *B2* gets its input from *A1* and its output goes to *12*
 
 ## Adding and changing sounds <a name = "sounds"></a>
