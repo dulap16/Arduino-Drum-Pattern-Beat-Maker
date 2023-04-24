@@ -46,9 +46,42 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
 ## Connecting the components - *coming soon*
+
+### Connecting the LCD
 ![lcd](pngs/lcd.jpeg)
+
+The LCD is 16x2, and has a 8051 microcontroller on its back
+| LCD | Arduino |
+| --- | ------- |
+| GND | GND |
+| VCC | 5V |
+| SDA | A4 |
+| SCL | A5 |
+
+
+### Connecting the 4x4 keypad matrix
 ![keypad](pngs/keypad.jpeg)
+
+The connections can be seen clearly in the image.
+
+
+### Connecting the 2 switches that control the current sound and when to print the pattern
 ![switches](pngs/switches.jpeg)
+
+How the connections are made can also be observed in this pard of the *soundpad.ino* script
+```
+#define changeSoundInput A0
+#define printBeatInput A1
+#define changeSoundOutput 13
+#define printBeatOutput 12
+```
+
+*B1* - button on the left, that switches the sound
+*B2* - button on the right, that prints the pattern of the beat
+
+Each one of them has a pull down resistor connected to the ground
+*B1* gets its input from *A0* and its output goes to *13*
+*B2* gets its input from *A1* and its output goes to *12*
 
 ## Adding and changing sounds
 - all you need to do is change things in the parts of the code, both in the .ino and in the .py, that are preceded by messages saying that those are changeable parts
