@@ -77,10 +77,13 @@ How the connections are made can also be observed in this pard of the *soundpad.
 ```
 
 *B1* - button on the left, that switches the sound
+
 *B2* - button on the right, that prints the pattern of the beat
 
 Each one of them has a pull down resistor connected to the ground
+
 *B1* gets its input from *A0* and its output goes to *13*
+
 *B2* gets its input from *A1* and its output goes to *12*
 
 ## Adding and changing sounds
