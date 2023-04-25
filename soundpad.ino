@@ -1,15 +1,13 @@
 #include <Wire.h>
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
+#include <ArduinoJson.h>
+#include <string.h>
 
 #define changeSoundInput A0
 #define printBeatInput A1
 #define changeSoundOutput 13
 #define printBeatOutput 12
-
-// CHANGE IF MORE SOUNDS ADDED
-const int nrOfSounds = 5;
-char sounds[20][20] = {"KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"};
 
 char printedSound[20];
 
@@ -33,13 +31,17 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
 int currentSound = 0;
-bool soundMatrix[nrOfSounds + 2][17];
+bool soundMatrix[20][17];
 
 bool changeOff = true;
 bool showGridOff = true;
 int timer = 0;
 
+bool receivedMessage = false;
+String mycmd;
 
+int nrOfSounds = 0;
+String sounds[20];
 
 void setup() {
   Serial.begin(9600);
@@ -53,12 +55,41 @@ void setup() {
 
   lcd.init();
   lcd.backlight();
-  lcd.setCursor(0, 0);
-  lcd.print(sounds[0]);
 }
 
-
 void loop() {
+  
+  
+  if(receivedMessage == false)
+  {
+    while(Serial.available() == 0)
+    {
+    }
+
+    receivedMessage = true;
+    mycmd = Serial.readStringUntil('\r');
+
+    while (mycmd.length() > 0)
+    {
+      int index = mycmd.indexOf(' ');
+      if (index == -1) // No space found
+      {
+        sounds[nrOfSounds++] = mycmd;
+        break;
+      }
+      else
+      {
+        sounds[nrOfSounds++] = mycmd.substring(0, index);
+        mycmd = mycmd.substring(index+1);
+      }
+    }
+
+    for(int i = 0; i < nrOfSounds; i++)
+      Serial.println(sounds[i]);
+  }
+
+  
+
   char pressed = keypad.getKey();
 
   if(pressed) {
