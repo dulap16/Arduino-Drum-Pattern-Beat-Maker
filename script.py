@@ -14,12 +14,14 @@ pygame.init()
 pygame.mixer.init()
 
 
-# ADD PATH OF SOUNDS
-kick = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Kick.wav') # path to kick
-clap = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Basic_Clap.wav') # etc
-hihat = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Hat.wav')
-snare = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Pierre_Snare.wav')
-openhat = pygame.mixer.Sound(r'.\Beat-Maker-3000\sounds\Open_Hat.wav')
+# SOUND PATHS
+path = __file__[:-9] + '\sounds\\'
+
+kick = pygame.mixer.Sound(path + 'Pierre_Kick.wav') # path to kick
+clap = pygame.mixer.Sound(path + 'Basic_Clap.wav') # etc
+hihat = pygame.mixer.Sound(path + 'Pierre_Hat.wav')
+snare = pygame.mixer.Sound(path + 'Pierre_Snare.wav')
+openhat = pygame.mixer.Sound(path + 'Open_Hat.wav')
 
 
 
