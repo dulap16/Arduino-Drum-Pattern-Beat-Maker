@@ -34,7 +34,6 @@ for i in range(0, len(paths)):
 
 cmd = cmd[:-1]
 cmd = cmd + '\r'
-print(cmd)
 
 
 soundMatrix = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 

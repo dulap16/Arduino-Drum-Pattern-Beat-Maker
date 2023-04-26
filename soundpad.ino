@@ -37,7 +37,6 @@ bool changeOff = true;
 bool showGridOff = true;
 int timer = 0;
 
-bool receivedMessage = false;
 String mycmd;
 
 int nrOfSounds = 0;
@@ -61,7 +60,6 @@ void setup() {
 
   }
 
-  receivedMessage = true;
   mycmd = Serial.readStringUntil('\r');
 
   while (mycmd.length() > 0)
