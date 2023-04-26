@@ -15,7 +15,7 @@
 By pressing on a 4x4 button grid, you can select the beats on which a specific drum sound will play,
 and then you can switch the sound or print out the entire pattern
 
-###[Demonstrational video](https://youtu.be/VX4NALyrweE), but wait for the kicks to start
+### [Demonstrational video](https://youtu.be/VX4NALyrweE), but wait for the kicks to start
 
 
 ## All the needed components for this group of projects can be found in the Arduino Uno R3 KIT with 24 components <a name = "prerequisites"></a>
