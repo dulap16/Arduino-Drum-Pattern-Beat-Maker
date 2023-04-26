@@ -26,34 +26,18 @@ and then you can switch the sound or print out the entire pattern
 - LCD 1602
 
 
-**Lines that will be modified should you want to change sounds or add more sounds**
-> script.py
-```
-# VARIABLES TO BE CHANGED
-numberOfSounds = 5
-List = [kick, hihat, clap, snare, openhat]
-names = ["KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"]
-```
 
-> soundpad.ino
-```
-// CHANGE IF MORE SOUNDS ADDED
-const int nrOfSounds = 5;
-char sounds[20][20] = {"KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"};
-```
+## Setup <a name = "setup"></a>
+- the Arduino is provided the .ino, then it returns messages through the COM3 port (in my case) and the .py reads it and plays sounds
+- you upload the .ino through the Arduino IDE
+- with the Serial Monitor and Serial Plotter closed, run the .py and jam on the grid!
 
-Here you might need to change the lcd serial in the .ino or port in python
+You might need to change the lcd address(0x27 in my case) in the .ino, depending on your display's address
 ```
 // I2C INITIALISATION
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 ```
 
-
-## Setup <a name = "setup"></a>
-- the Arduino is provided the .ino, then it returns messages through the COM3 port (in my case) and the .py reads it and plays sounds
-- you upload the .ino into the arduino, then close the arduino IDE and you don't have to do anything with it unless you want to add new sounds
-- with the .py, you use the sounds you like (or the ones I used for a test), change the paths if needed
-- with Arduino IDE closed and the Arduino Uno plugged in, run the .py and jam on the grid!
 
 
 ## Connecting the components <a name = "connections"></a>
@@ -97,12 +81,26 @@ Each one of them has a pull down resistor connected to the ground
 
 *B2* gets its input from *A1* and its output goes to *12*
 
+
+
 ## Adding and changing sounds <a name = "sounds"></a>
-- all you need to do is change things in the parts of the code, both in the .ino and in the .py, that are preceded by messages saying that those are changeable parts
-- when adding a new sound in .py, you need to write <yoursound> = pygame.mixer.Sound(r'<PATH>'), and then add <yoursound> to the List, and its name in caps to names
-- change numberOfSounds (.py) and nrOfSounds (.ino) if needed
-- the names list from the .py must be exactly the same as the sounds[20][20] from the .ino
-- remember to add the correct paths to the .py
+
+**If you want to add, change or remove sounds, you will use *config.json***
+> config.json
+```
+{
+    "port": "COM3",
+    "sounds": ["KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"],
+    "paths": ["Pierre_Kick.wav", "Pierre_Hat.wav", "Basic_Clap.wav", "Pierre_Snare.wav", "Open_Hat.wav"]
+}
+```
+
+- *port* is the port used to communicate with the Arduino
+- *sounds* are the names of the sounds, that will appear on the lcd screen and on the terminal
+- *paths* are the file names of the sounds, that **MUST** be placed the **sounds** folder
+
+**THE SOUNDS AND THE PATHS IN THE *CONFIG.JSON* HAVE TO BE IN THE SAME ORDER**
 
 
-# That's about it. Have fun and feel free to criticize and offer feedback!
+
+## That's about it. Have fun and feel free to criticize and offer feedback!
