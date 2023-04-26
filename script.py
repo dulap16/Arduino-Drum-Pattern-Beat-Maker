@@ -30,9 +30,11 @@ List = []
 numberOfSounds = len(sounds)
 for i in range(0, len(paths)):
     List.append(pygame.mixer.Sound(soundPath + paths[i]))
-    cmd = cmd + " " + sounds[i]
+    cmd = cmd + sounds[i] + " "
 
+cmd = cmd[:-1]
 cmd = cmd + '\r'
+print(cmd)
 
 
 soundMatrix = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
@@ -87,7 +89,6 @@ def readSerial():
         if serialInst.in_waiting:
             packet = serialInst.readline()
             line = (packet.decode('utf')).rstrip('\n')
-            print(line)
 
             if line[0] >= '0' and line[0] <= '9':
                 first, second = line.split(' ')

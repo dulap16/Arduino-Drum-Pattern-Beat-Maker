@@ -41,7 +41,8 @@ bool receivedMessage = false;
 String mycmd;
 
 int nrOfSounds = 0;
-String sounds[20];
+String strsounds[20];
+char sounds[20][20];
 
 void setup() {
   Serial.begin(9600);
@@ -53,42 +54,43 @@ void setup() {
   digitalWrite(printBeatOutput, HIGH);
 
 
-  lcd.init();
-  lcd.backlight();
-}
 
-void loop() {
-  
-  
-  if(receivedMessage == false)
+  // READ SERIAL
+  while(Serial.available() == 0)
   {
-    while(Serial.available() == 0)
+
+  }
+
+  receivedMessage = true;
+  mycmd = Serial.readStringUntil('\r');
+
+  while (mycmd.length() > 0)
+  {
+    int index = mycmd.indexOf(' ');
+    if (index == -1) // No space found
     {
+      strsounds[nrOfSounds++] = mycmd;
+      break;
     }
-
-    receivedMessage = true;
-    mycmd = Serial.readStringUntil('\r');
-
-    while (mycmd.length() > 0)
+    else
     {
-      int index = mycmd.indexOf(' ');
-      if (index == -1) // No space found
-      {
-        sounds[nrOfSounds++] = mycmd;
-        break;
-      }
-      else
-      {
-        sounds[nrOfSounds++] = mycmd.substring(0, index);
-        mycmd = mycmd.substring(index+1);
-      }
+      strsounds[nrOfSounds++] = mycmd.substring(0, index);
+      mycmd = mycmd.substring(index+1);
     }
+  }
 
-    for(int i = 0; i < nrOfSounds; i++)
-      Serial.println(sounds[i]);
+  for(int i = 0; i < nrOfSounds; i++) {
+    strsounds[i].toCharArray(sounds[i], strsounds[i].length() + 1);
   }
 
   
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0, 0);
+  lcd.print(sounds[0]);
+}
+
+void loop() {
 
   char pressed = keypad.getKey();
 
