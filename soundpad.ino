@@ -1,13 +1,15 @@
 #include <Wire.h>
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
-#include <ArduinoJson.h>
-#include <string.h>
 
 #define changeSoundInput A0
 #define printBeatInput A1
 #define changeSoundOutput 13
 #define printBeatOutput 12
+
+// CHANGE IF MORE SOUNDS ADDED
+const int nrOfSounds = 5;
+char sounds[20][20] = {"KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"};
 
 char printedSound[20];
 
@@ -31,14 +33,12 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 
 int currentSound = 0;
-bool soundMatrix[20][17];
+bool soundMatrix[nrOfSounds + 2][17];
 
 bool changeOff = true;
 bool showGridOff = true;
 int timer = 0;
 
-bool receivedMessage = false;
-String mycmd;
 
 int nrOfSounds = 0;
 String strsounds[20];
@@ -52,7 +52,6 @@ void setup() {
 
   digitalWrite(changeSoundOutput, HIGH);
   digitalWrite(printBeatOutput, HIGH);
-
 
 
   // READ SERIAL
@@ -91,7 +90,6 @@ void setup() {
 }
 
 void loop() {
-
   char pressed = keypad.getKey();
 
   if(pressed) {
