@@ -40,6 +40,9 @@ bool showGridOff = true;
 int timer = 0;
 
 
+int nrOfSounds = 0;
+String strsounds[20];
+char sounds[20][20];
 
 void setup() {
   Serial.begin(9600);
@@ -51,12 +54,40 @@ void setup() {
   digitalWrite(printBeatOutput, HIGH);
 
 
+  // READ SERIAL
+  while(Serial.available() == 0)
+  {
+
+  }
+
+  receivedMessage = true;
+  mycmd = Serial.readStringUntil('\r');
+
+  while (mycmd.length() > 0)
+  {
+    int index = mycmd.indexOf(' ');
+    if (index == -1) // No space found
+    {
+      strsounds[nrOfSounds++] = mycmd;
+      break;
+    }
+    else
+    {
+      strsounds[nrOfSounds++] = mycmd.substring(0, index);
+      mycmd = mycmd.substring(index+1);
+    }
+  }
+
+  for(int i = 0; i < nrOfSounds; i++) {
+    strsounds[i].toCharArray(sounds[i], strsounds[i].length() + 1);
+  }
+
+  
   lcd.init();
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print(sounds[0]);
 }
-
 
 void loop() {
   char pressed = keypad.getKey();

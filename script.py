@@ -24,13 +24,15 @@ snare = pygame.mixer.Sound(path + 'Pierre_Snare.wav')
 openhat = pygame.mixer.Sound(path + 'Open_Hat.wav')
 
 
+cmd = ""
+List = []
+numberOfSounds = len(sounds)
+for i in range(0, len(paths)):
+    List.append(pygame.mixer.Sound(soundPath + paths[i]))
+    cmd = cmd + sounds[i] + " "
 
-# VARIABLES TO BE CHANGED
-numberOfSounds = 5
-List = [kick, hihat, clap, snare, openhat]
-names = ["KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"]
-
-
+cmd = cmd[:-1]
+cmd = cmd + '\r'
 
 
 soundMatrix = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
