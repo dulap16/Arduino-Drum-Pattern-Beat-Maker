@@ -4,7 +4,6 @@ from pydub.playback import play
 import pygame
 from threading import Thread
 import ffmpeg
-import json
 import time
 
 ports = serial.tools.list_ports.comports()
@@ -15,21 +14,22 @@ pygame.init()
 pygame.mixer.init()
 
 
-# READ CONFIG
-pathToConfig = __file__[:-9] + "\config.json"
-with open(pathToConfig, "r") as jsonfile:
-    data = json.load(jsonfile)
-sounds = data['sounds']
-paths = data['paths']
-
-
 # SOUND PATHS
-soundPath = __file__[:-9] + '\sounds\\'
+path = __file__[:-9] + '\sounds\\'
 
-List = []
-numberOfSounds = len(sounds)
-for i in range(0, len(paths)):
-    List.append(pygame.mixer.Sound(soundPath + paths[i]))
+kick = pygame.mixer.Sound(path + 'Pierre_Kick.wav') # path to kick
+clap = pygame.mixer.Sound(path + 'Basic_Clap.wav') # etc
+hihat = pygame.mixer.Sound(path + 'Pierre_Hat.wav')
+snare = pygame.mixer.Sound(path + 'Pierre_Snare.wav')
+openhat = pygame.mixer.Sound(path + 'Open_Hat.wav')
+
+
+
+# VARIABLES TO BE CHANGED
+numberOfSounds = 5
+List = [kick, hihat, clap, snare, openhat]
+names = ["KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"]
+
 
 
 
@@ -67,7 +67,7 @@ def equalizeLines(word):
 def lengthiestOutOfSounds():
     maxi = 0
     for i in range(0, numberOfSounds):
-        maxi = max(maxi, len(sounds[i]))
+        maxi = max(maxi, len(names[i]))
     
     return maxi
 
@@ -97,7 +97,7 @@ def readSerial():
 
                 ok = False
                 for i in range(0, numberOfSounds):
-                    if tokens[0] == sounds[i]:
+                    if tokens[0] == names[i]:
                         ok = True
                         i = numberOfSounds
 
@@ -113,7 +113,7 @@ def readSerial():
                         else: print("▯", end = "", flush = True)
                     print()
                 
-                if tokens[0] == sounds[numberOfSounds - 1]:
+                if tokens[0] == names[numberOfSounds - 1]:
                     print()
                     print()
 
