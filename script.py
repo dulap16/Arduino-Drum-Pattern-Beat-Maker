@@ -7,9 +7,10 @@ import ffmpeg
 import json
 import time
 
-
 ports = serial.tools.list_ports.comports()
+
 serialInst = serial.Serial()
+
 pygame.init()
 pygame.mixer.init()
 
@@ -25,14 +26,11 @@ paths = data['paths']
 # SOUND PATHS
 soundPath = __file__[:-9] + '\sounds\\'
 
-cmd = ""
 List = []
 numberOfSounds = len(sounds)
 for i in range(0, len(paths)):
     List.append(pygame.mixer.Sound(soundPath + paths[i]))
-    cmd = cmd + " " + sounds[i]
 
-cmd = cmd + '\r'
 
 
 soundMatrix = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
@@ -80,14 +78,10 @@ def readSerial():
     serialInst.port = "COM3"
     serialInst.open()
     
-    time.sleep(2)
-    serialInst.write(cmd.encode())
-
     while True:
         if serialInst.in_waiting:
             packet = serialInst.readline()
             line = (packet.decode('utf')).rstrip('\n')
-            print(line)
 
             if line[0] >= '0' and line[0] <= '9':
                 first, second = line.split(' ')
