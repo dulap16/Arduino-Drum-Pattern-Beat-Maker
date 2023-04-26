@@ -20,6 +20,7 @@ with open(pathToConfig, "r") as jsonfile:
     data = json.load(jsonfile)
 sounds = data['sounds']
 paths = data['paths']
+port = data['port']
 
 
 # SOUND PATHS
@@ -78,7 +79,7 @@ def lengthiestOutOfSounds():
 def readSerial():
 
     serialInst.baudrate = 9600
-    serialInst.port = "COM3"
+    serialInst.port = port
     serialInst.open()
     
     time.sleep(2)

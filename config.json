@@ -1,4 +1,5 @@
 {
+    "port": "COM3",
     "sounds": ["KICK", "HIHAT", "CLAP", "SNARE", "OPENHAT"],
     "paths": ["Pierre_Kick.wav", "Pierre_Hat.wav", "Basic_Clap.wav", "Pierre_Snare.wav", "Open_Hat.wav"]
 }
