@@ -15,7 +15,7 @@
 By pressing on a 4x4 button grid, you can select the beats on which a specific drum sound will play,
 and then you can switch the sound or print out the entire pattern
 
-### [Demonstrational video](https://youtu.be/VX4NALyrweE), but wait for the kicks to start
+### [Demonstrational video](pngs and mp4/DescVideo.mp4), but wait for the kicks to start
 
 
 ## All the needed components for this group of projects can be found in the Arduino Uno R3 KIT with 24 components <a name = "prerequisites"></a>
@@ -43,7 +43,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 ## Connecting the components <a name = "connections"></a>
 
 ### Connecting the LCD
-![lcd](pngs/lcd.jpeg)
+![lcd](pngs and mp4/lcd.jpeg)
 
 The LCD is 16x2, and has a 8051 microcontroller on its back
 | LCD | Arduino |
@@ -55,13 +55,13 @@ The LCD is 16x2, and has a 8051 microcontroller on its back
 
 
 ### Connecting the 4x4 keypad matrix
-![keypad](pngs/keypad.jpeg)
+![keypad](pngs and mp4/keypad.jpeg)
 
 The connections can be seen clearly in the image.
 From left to right, the cables are connected to digital pins from 9 to 2
 
 ### Connecting the 2 switches that control the current sound and when to print the pattern
-![switches](pngs/switches.jpeg)
+![switches](pngs and mp4/switches.jpeg)
 
 How the connections are made can also be observed in this pard of the *soundpad.ino* script
 ```
