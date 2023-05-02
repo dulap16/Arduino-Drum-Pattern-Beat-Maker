@@ -104,3 +104,4 @@ Each one of them has a pull down resistor connected to the ground
 
 
 ## That's about it. Have fun and feel free to criticize and offer feedback!
+### Other than that, no contributions needed.
