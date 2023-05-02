@@ -43,7 +43,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 ## Connecting the components <a name = "connections"></a>
 
 ### Connecting the LCD
-![lcd](pngs and mp4/lcd.jpeg)
+![lcd](pngs/lcd.jpeg)
 
 The LCD is 16x2, and has a 8051 microcontroller on its back
 | LCD | Arduino |
@@ -55,13 +55,13 @@ The LCD is 16x2, and has a 8051 microcontroller on its back
 
 
 ### Connecting the 4x4 keypad matrix
-![keypad](pngs and mp4/keypad.jpeg)
+![keypad](pngs/keypad.jpeg)
 
 The connections can be seen clearly in the image.
 From left to right, the cables are connected to digital pins from 9 to 2
 
 ### Connecting the 2 switches that control the current sound and when to print the pattern
-![switches](pngs and mp4/switches.jpeg)
+![switches](pngs/switches.jpeg)
 
 How the connections are made can also be observed in this pard of the *soundpad.ino* script
 ```
